@@ -134,22 +134,22 @@ if __name__ == '__main__':
         print("Path of the file is Invalid")
         directory = input("Enter path for saving the data? ")
         
-    representation = "1H"        
-    rule = "TDtheta"
+    representation = "1H"         ## method for representing the state        
+    rule = "TDtheta"              ## learning rule
         
-    alpha = 0.1
-    beta = 0.9
-    gamma = 0.95
+    alpha = 0.1                   ## learning rate
+    beta = 0.9                    ## discount for action values
+    gamma = 0.95                  ## discount for state values
     
-    neurons = 3000
-    sparsity = 0.1
-    dims = 1
+    neurons = 3000                ## number of neurons in hidden layer
+    sparsity = 0.1                ## neuron intercepts
+    dims = 1                      ## number of dimensions in SSP representation. Only relevant when using SSP representation
     
-    n = 2
-    continuous = True #set to false to use discrete time. Only relevant when using TDtheta learning rule
-    q = 50
+    n = 2                         ## value of n for TD(n)
+    continuous = True             ## set to false to use discrete time. Only relevant when using TDtheta learning rule
+    q = 50                        ## number of internal state dimensions per input
     
-    trials = 500
+    trials = 500                  ## number of learning trials
     
     params = {'rep':representation, 'rule': rule, 'alpha':alpha,
              'beta': beta, 'gamma':gamma, 'neurons':neurons,
