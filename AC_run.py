@@ -138,7 +138,7 @@ if __name__ == '__main__':
     rule = "TDtheta"
         
     alpha = 0.1
-    beta = 0.85
+    beta = 0.9
     gamma = 0.95
     
     neurons = 3000
