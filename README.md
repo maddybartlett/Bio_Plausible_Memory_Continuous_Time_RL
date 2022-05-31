@@ -1,7 +1,7 @@
 # Biologically-Plausible Memory for Continuous-Time Reinforcement Learning
 Companion repository to ICCM paper "Biologically-Plausible Memory for Continuous-Time Reinforcement Learning"
 
-Contributors: Dr. M. Bartlett, 
+Contributors: 
 
 Repository to accompany Bartlett, Dumont, Furlong & Stewart (2022) "Biologically-Plausible Memory for Continuous-Time Reinforcement Learning" ICCM Paper (LINK).
 
@@ -61,6 +61,8 @@ This script will produce three plots and save them to a 'figures/' directory. Th
 * Plot of state values
 
 No further analysis was done on these data as the intention was just to establish whether the novel TD($\theta$) rule would produce similar results as the standard TD(n) learning rule. 
+
+
 
 ## Citation:
 
