@@ -390,7 +390,7 @@ class ActorCriticTDtheta(nengo.processes.Process):
         action_memory = [] ##list for storing the last n chosen actions
         
         ## One time step
-        def step_TDn(t, x, state=state):
+        def step_TDtheta(t, x, state=state):
             ''' Function for performing TD(n) update at each timestep.
             Inputs: state representation, chosen action, reward
                 and whether or not the env was reset
@@ -469,4 +469,4 @@ class ActorCriticTDtheta(nengo.processes.Process):
         
             ##return updated state value for update state and action values for current state
             return result_values 
-        return step_TDn
+        return step_TDtheta
