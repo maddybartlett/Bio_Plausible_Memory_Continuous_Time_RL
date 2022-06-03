@@ -72,9 +72,11 @@ class ActorCriticLearn(pytry.Trial):
         report_weights = param.report_weights
         n_actions = env.action_space.n
         
+        ## LDN parameters
         continuous = param.continuous
         theta = param.theta
         q = param.q
+        
         
         ## If using continuous time, need to have the agent wait for 2 time steps in each state
         wait = 2
