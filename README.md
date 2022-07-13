@@ -70,6 +70,7 @@ All of the scripts required to create and run the network can be found in the '.
 **actor_critic.py** is the script needed to construct both Actor-Critic networks. <br>
 * The first, '*ActorCritic*', is the network needed for the classic TD learning rules. The history of rewards and state values are stored in arrays.
 * '*ActorCriticLDN*' is the network needed for the novel TD($\theta$) learning rule. It utilises the '*LDN*' class to create Legendre Delay Networks for containing memories of the rewards and state values. <br>
+
 **grid_cells.py** is used to create a population of grid cells for representing the agent's state. *This representation method was not used in these experiments*. <br>
 **learnrules.py** contains the 4 Temporal Difference learning rules - TD(0), TD(n), TD($\lambda$) and TD($\theta$). This is the script that is used to perform the TD updates, which are performed by the network's '*rule node*'. <br>
 **minigrid_wrap.py** is a wrapper for the Gym MiniGrid environment which allows us to interact with this environment in the same way as we would any other OpenAI Gym environment such as mountaincar or cartpole. It creates an *observation_space* attribute, and alters the observations that are returned when an agent steps through the environment to be the agent's x and y coordinate location, and the direction it's facing. 
