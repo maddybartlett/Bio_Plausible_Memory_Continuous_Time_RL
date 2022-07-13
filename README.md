@@ -62,7 +62,14 @@ This script will produce three plots and save them to a 'figures/' directory. Th
 
 No further analysis was done on these data as the intention was just to establish whether the novel TD($\theta$) rule would produce similar results as the standard TD(n) learning rule. 
 
+## Network:
 
+All of the scripts required to create and run the network can be found in the './network/' folder. <br>
+
+**ac_learn.py** is a pytry trial script which contains the instructions for running the network <br<
+**actor_critic.py** is the script needed to construct both Actor-Critic networks. <br>
+* The first, *ActorCritic*, is the network needed for the classic TD learning rules. The history of rewards and state values are stored in arrays.
+* *ActorCriticLDN* is the network needed for the novel TD($\theta$) learning rule. It utilises the 'LDN' class to create Legendre Delay Networks for containing memories of the rewards and state values. <br>
 
 ## Citation:
 
