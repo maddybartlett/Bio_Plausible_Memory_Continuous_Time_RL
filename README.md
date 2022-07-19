@@ -84,6 +84,49 @@ All of the scripts required to create and run the network can be found in the '.
 
 *The experiments reported in this paper only used the One-Hot representation method.* 
 
+## Temporal Difference Learning Rules:
+
+In this work we implemented and compared the performance of two Temporal Difference (TD) learning rules: TD(n) and TD($\theta$). <br>
+TD($\theta$) is a novel rule, developed to provide a method of implementing Temporal Difference learning in continuous-time. 
+
+The following sections outline the two rules, providing their mathematical descriptions and highlighting how they have been implemented in code (see the learnrules.py script).
+
+### TD(n):
+
+The TD(n) or the n-step back-up rule is implemented in discrete time. <br> 
+With this rule, each timestep involves updating the values of the previous *n* states, using the rewards gained between the timesteps *t* and *t + n*. <br>
+To implement this method we first have to calculate the n-step target (or return) for each step. This is done according to the following equation:
+
+G<sub>t:t+n</sub> = R<sub>t+1</sub> + &gamma;R<sub>t+2</sub> + ... + &gamma;<sup>n-1</sup>R<sub>t+n-1</sub> + &gamma;<sup>n</sup> V<sub>t+n-1</sub>(S<sub>t+n</sub>)
+
+Where: <br>
+G<sub>t:t+n</sub> = the n-step return for steps t to t+n <br>
+R<sub>t+1</sub> = reward gained moving from state(t) to state(t+1) <br>
+V<sub>t+n-1</sub>(S<sub>t+n</sub>) = value (before update) of the state the agent is currently in
+
+This is then incorporated into the state-value learning algorithm for updating the value of each state:
+
+V<sub>t+n</sub>(S<sub>t</sub>) = V<sub>t+n-1</sub>(S<sub>t</sub>) + &alpha;(G<sub>t:t+n</sub> - V<sub>t+n-1</sub>(S<sub>t</sub>))
+
+Where: <br>
+V<sub>t+n</sub>(S<sub>t</sub>) = the updated value of the state agent was in n-steps ago <br>
+V<sub>t+n-1</sub>(S<sub>t</sub>) = the old value of the state agent was in n-steps ago <br>
+(G<sub>t:t+n</sub> - V<sub>t+n-1</sub>(S<sub>t</sub>)) = the error term
+
+#### In the code:
+
+In the learnrules.py script, the history of rewards, states, values and actions are stored in lists:
+
+```
+state_memory = [] ##list for storing the last n states
+value_memory = [] ##list for storing the last n values
+reward_memory = [] ##list for storing the last n rewards
+action_memory = [] ##list for storing the last n chosen actions
+```
+
+
+### TD($\theta$):
+
 ## Citation:
 
 Please use this bibtex to reference the paper: 
