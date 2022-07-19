@@ -124,6 +124,50 @@ reward_memory = [] ##list for storing the last n rewards
 action_memory = [] ##list for storing the last n chosen actions
 ```
 
+These lists are emptied at the start of each learning trial:
+
+'''
+if reset:
+    count = 0
+    state_memory.clear()
+    value_memory.clear()
+    reward_memory.clear()
+    action_memory.clear()
+'''
+
+New information is added on each time step. For example:
+
+'''
+reward_memory.append(reward)
+'''
+
+and used for updating the value function. 
+
+At the end of each time-step, we delete the oldest entry in the list. This ensures that the lists only contain values relevant to the update. (The length of the lists is determined by the value of $n$):
+
+'''
+state_memory.pop(0)
+value_memory.pop(0)
+reward_memory.pop(0)
+action_memory.pop(0)
+'''
+
+For the TD error term, we need to use the rewards list in order to calculate a discounted sum of the rewards received in the last $n$ timesteps:
+
+R<sub>t+1</sub> + &gamma;R<sub>t+2</sub> + ... + &gamma;<sup>n-1</sup>R<sub>t+n-1</sub>
+
+In the code, we do this by taking all of the values in the rewards list, and multiplying them by the discount term $\gamma$ (gamma):
+
+'''
+Rs = self.gamma**np.arange(n)*reward_memory[:]
+'''
+
+Then summing them together in order to then calculate the n-step return (target): 
+
+'''
+target = np.sum(Rs) + ((self.gamma**n)*current_state_value)
+'''
+
 
 ### TD($\theta$):
 
