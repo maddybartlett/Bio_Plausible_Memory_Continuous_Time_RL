@@ -4,7 +4,7 @@ import pandas as pd
 
 import nengo
 import pytry
-import gym
+import gymnasium as gym
 import learnrules as rules
 import representations as rp
 import minigrid_wrap
@@ -155,8 +155,13 @@ class ActorCriticLearn(pytry.Trial):
                             vs.append(value.copy()) ##save state value
                             rs.append(reward) ##save reward
                     break                    
-
-            Ep_rewards.append(np.sum(rs)) ##Store average reward for episode
+           
+            ## make all data lists the same length
+            for i in range((steps+steps*wait)-len(rs)):
+                rs.append(np.nan)
+                vs.append([np.nan])
+                          
+            Ep_rewards.append(np.nansum(rs)) ##Store average reward for episode
             Rewards.append(rs) ##Store all rewards in episode
             Values.append(vs) ##Store all values in episode  
         #env.close() ##Uncomment if rendering the environment
@@ -166,8 +171,7 @@ class ActorCriticLearn(pytry.Trial):
         rewards_over_eps = pd.DataFrame(Ep_rewards)
         ## Calculate a rolling average reward across previous 100 episodes
         Roll_mean.append(rewards_over_eps[rewards_over_eps.columns[0]].rolling(100).mean())
-        
-
+              
         return dict(
             episodes=Ep_rewards,
             rewards = Rewards,

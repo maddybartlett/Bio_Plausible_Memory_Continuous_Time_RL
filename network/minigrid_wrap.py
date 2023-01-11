@@ -1,5 +1,7 @@
-import gym_minigrid
-from gym_minigrid.wrappers import *
+#import gym_minigrid
+#from gym_minigrid.wrappers import *
+import minigrid
+from minigrid.wrappers import *
 
 class MiniGrid_wrapper(gym.Env):
     '''Wrapper for the mini-grid environment.
@@ -31,8 +33,10 @@ class MiniGrid_wrapper(gym.Env):
         return obs #return state
         
     def step(self, a):
-        blah, reward, done, info = self.orig_env.step(a) #do step in environment
+        obs, reward, terminated, truncated, info = self.orig_env.step(a) #do step in environment
+        done = terminated or truncated
         #get agent's state (x position, y position, direction)
-        obs = (self.orig_env.agent_pos[0], self.orig_env.agent_pos[1], self.orig_env.agent_dir)
+        pos = (self.orig_env.agent_pos[0], self.orig_env.agent_pos[1], self.orig_env.agent_dir)
+            
         #return state, reward, done and info
-        return obs, reward, done, info
+        return pos, reward, done, info
