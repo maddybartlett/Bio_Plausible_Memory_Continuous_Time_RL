@@ -173,8 +173,9 @@ target = np.sum(Rs) + ((self.gamma**n)*current_state_value)
 
 In contrast, TD($\theta$) can be implemented in continuous time. It is possible to use these scripts to implement TD($\theta$) in discrete time, however, the published experiment used the continuous time implementation. 
 
-This novel Temporal Difference learning rule relies on the use of Legendre Delay Networks for representing the history of events. <br>
-Legendre Delay Networks....
+This novel Temporal Difference learning rule uses Legendre Delay Networks (Voelker, Kajić, & Eliasmith, 2019) to encode the history of events. <br>
+Legendre Delay Networks leverage the properties of Legendre polynomials which can be used to represent functions over fixed windows of time. <br>
+The LDN is a dynamic system that approximates the Legendre polynomial coefficients of an input signal over a sliding history window of length $\theta$. 
 
 
 ## Citation:
