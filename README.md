@@ -185,11 +185,11 @@ In contrast, the LDN stores a continuous-time signal over a window of length $\t
 In terms of the learning rule, this change means that we can't calculate a weighted sum of rewards as we would in TD(n). Instead we calculate the discounted integral over the reward history. 
 So whilst the TD(n) error term is:
 
-&delta = G<sub>t:t+n</sub> - V<sub>t+n-1</sub>(S<sub>t</sub>)
+&delta; = G<sub>t:t+n</sub> - V<sub>t+n-1</sub>(S<sub>t</sub>)
 
 The TD($\theta$) error term is:
 
-&delta = \int_0^1 &gamma<sup>1-&tau</sup>
+&delta; = \int_0^1 &gamma<sup>1-&tau</sup>
 
 
 
