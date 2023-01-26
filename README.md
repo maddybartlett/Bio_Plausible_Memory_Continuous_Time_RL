@@ -195,10 +195,7 @@ The TD(&theta;) error term is:
 Where: <br>
 **P**<sup> q<sub>r</sub> </sup> = the LDN storing the history of rewards
 
-
-
-
-
+This operation of taking the integral over the LDN window is handled by the ```reward_decorders``` defined in the ActorCriticLDN. 
 
 
 ## Citation:
