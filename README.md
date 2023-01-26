@@ -189,7 +189,7 @@ So whilst the TD(n) error term is:
 
 The TD($\theta$) error term is:
 
-&delta; = &int<sub>0</sub><sup>1</sup> &gamma<sup>1-&tau</sup>
+&delta; = &int;<sub>0</sub><sup>1</sup> &gamma<sup>1-&tau</sup>
 
 
 
