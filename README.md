@@ -30,7 +30,7 @@ Download repository as a zip file or clone repository by clicking the "Code" but
 
 You can run the network from the command line using AC_run.py - in the terminal, navigate to the directory containing these scripts and run the command "python AC_run.py". 
 
-Running this command without any changes to the file will result in you first being prompted to provide a directory for saving the data and figures. The AC network will then try to solve the MiniGrid task using the TD(n) learning rule in continuous time with $n = 2$. The network will utilise a One-Hot representation of the state. The preset parameter values are the same as those used in the TD($\theta$) condition in the published experiment. <br>
+Running this command without any changes to the file will result in you first being prompted to provide a directory for saving the data and figures. The AC network will then try to solve the MiniGrid task using the TD(n) learning rule in continuous time with $n = 2$. The network will utilise a One-Hot representation of the state. The preset parameter values are the same as those used in the TD(&theta;) condition in the published experiment. <br>
 For the TD(n) experiment, the only changes needed are to set rule = TDn and continuous = False. <br>
 Once the network has finished running, plots showing the total reward received in each of the 500 learning trials, the ideal vs. actual value for last learning trial and the policy will be presented on the screen and saved to the directory you specified.
 
@@ -40,7 +40,7 @@ Alternatively, you can step through the process of running the network by openin
 
 In order to replicate the experiment reported in Bartlett, Dumont, Furlong & Stewart (2022) you will need to run the network twice -- once for each rule. 
 
-For the TD($\theta$) rule, simply run the network in its current state (i.e. with the current parameter settings).
+For the TD(&theta;) rule, simply run the network in its current state (i.e. with the current parameter settings).
 When running the network from the command line, we suggest setting the path for saving the data to '.\data\MG_TDtheta',
 To run the TD(n) rule, make the following changes to the parameters:
 
@@ -68,7 +68,7 @@ All of the scripts required to create and run the network can be found in the '.
 
 **actor_critic.py** is the script needed to construct both Actor-Critic networks. <br>
 * The first, '*ActorCritic*', is the network needed for the classic TD learning rules. The history of rewards and state values are stored in arrays.
-* '*ActorCriticLDN*' is the network needed for the novel TD($\theta$) learning rule. It utilises the '*LDN*' class to create Legendre Delay Networks for containing memories of the rewards and state values. <br>
+* '*ActorCriticLDN*' is the network needed for the novel TD(&theta;) learning rule. It utilises the '*LDN*' class to create Legendre Delay Networks for containing memories of the rewards and state values. <br>
 
 **grid_cells.py** is used to create a population of grid cells for representing the agent's state. *This representation method was not used in these experiments*. <br>
 
@@ -87,7 +87,7 @@ All of the scripts required to create and run the network can be found in the '.
 ## Temporal Difference Learning Rules:
 
 In this work we implemented and compared the performance of two Temporal Difference (TD) learning rules: TD(n) and TD($\theta$). <br>
-TD($\theta$) is a novel rule, developed to provide a method of implementing Temporal Difference learning in continuous-time. 
+TD(&theta;) is a novel rule, developed to provide a method of implementing Temporal Difference learning in continuous-time. 
 
 The following sections outline the two rules, providing their mathematical descriptions and highlighting how they have been implemented in code (see the learnrules.py script).
 
@@ -171,11 +171,11 @@ target = np.sum(Rs) + ((self.gamma**n)*current_state_value)
 
 ### TD(&theta;):
 
-In contrast, TD($\theta$) can be implemented in continuous time. It is possible to use these scripts to implement TD($\theta$) in discrete time, however, the published experiment used the continuous time implementation. 
+In contrast, TD(&theta;) can be implemented in continuous time. It is possible to use these scripts to implement TD($\theta$) in discrete time, however, the published experiment used the continuous time implementation. 
 
 This novel Temporal Difference learning rule uses Legendre Delay Networks (Voelker, Kajić, & Eliasmith, 2019) to encode the history of events. <br>
 Legendre Delay Networks leverage the properties of Legendre polynomials which can be used to represent functions over fixed windows of time. <br>
-The LDN is a dynamic system that approximates the Legendre polynomial coefficients of an input signal over a sliding history window of length $\theta$. <br>
+The LDN is a dynamic system that approximates the Legendre polynomial coefficients of an input signal over a sliding history window of length &theta;. <br>
 
 Recall that with discrete rules like TD(n), the history of rewards, states, values and actions are often stored as explicit lists containing $n$ values (where $n = number of time steps in history$). 
 In contrast, the LDN stores a continuous-time signal over a window of length $\theta$. Thus the RL task no longer needs to be divided into discrete time steps. 
