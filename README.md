@@ -189,11 +189,11 @@ So whilst the TD(n) error term is:
 
 The TD(&theta;) error term is:
 
-&delta; = &int;<sub>0</sub><sup>1</sup> &gamma;<sup>1-&tau;</sup> **R**(t - &theta;&tau;)d&tau; + &gamma;V(t) - V(t-&theta;)
-        = &int;<sub>0</sub><sup>1</sup> &gamma;<sup>1-&tau;</sup> **P**<sup> q<sub>r</sub> </sup>(t - &theta;&tau;)d&tau; + &gamma;V(t) - V(t-&theta;)
+&delta; = &int;<sub>0</sub><sup>1</sup> &gamma;<sup>1-&tau;</sup> **R**(t - &theta;&tau;)d&tau; + &gamma;V(t) - V(t-&theta;) <br>
+        = (&int;<sub>0</sub><sup>1</sup> &gamma;<sup>1-&tau;</sup> **P**<sup> q<sub>r</sub> </sup>(&tau;)d&tau;)m<sub>R</sub>(t) + &gamma;V(t) - V(t-&theta;)
 
 Where: <br>
-
+**P**<sup> q<sub>r</sub> </sup> = the LDN storing the history of rewards
 
 
 
