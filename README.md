@@ -187,9 +187,9 @@ So whilst the TD(n) error term is:
 
 &delta = G<sub>t:t+n</sub> - V<sub>t+n-1</sub>(S<sub>t</sub>)
 
-The TD(&theta) error term is:
+The TD($\theta$) error term is:
 
-
+&delta = \int_0^1 &gamma<sup>1-&tau</sup>
 
 
 
