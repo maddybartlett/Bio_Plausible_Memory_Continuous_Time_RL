@@ -175,7 +175,25 @@ In contrast, TD($\theta$) can be implemented in continuous time. It is possible 
 
 This novel Temporal Difference learning rule uses Legendre Delay Networks (Voelker, Kajić, & Eliasmith, 2019) to encode the history of events. <br>
 Legendre Delay Networks leverage the properties of Legendre polynomials which can be used to represent functions over fixed windows of time. <br>
-The LDN is a dynamic system that approximates the Legendre polynomial coefficients of an input signal over a sliding history window of length $\theta$. 
+The LDN is a dynamic system that approximates the Legendre polynomial coefficients of an input signal over a sliding history window of length $\theta$. <br>
+
+Recall that with discrete rules like TD(n), the history of rewards, states, values and actions are often stored as explicit lists containing $n$ values (where $n = number of time steps in history$). 
+In contrast, the LDN stores a continuous-time signal over a window of length $\theta$. Thus the RL task no longer needs to be divided into discrete time steps. 
+
+**Note**: in this repository, only the reward history is stored in an LDN.
+
+In terms of the learning rule, this change means that we can't calculate a weighted sum of rewards as we would in TD(n). Instead we calculate the discounted integral over the reward history. 
+So whilst the TD(n) error term is:
+
+&delta = G<sub>t:t+n</sub> - V<sub>t+n-1</sub>(S<sub>t</sub>)
+
+The TD(&theta) error term is:
+
+
+
+
+
+
 
 
 ## Citation:
