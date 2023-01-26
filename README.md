@@ -169,7 +169,7 @@ target = np.sum(Rs) + ((self.gamma**n)*current_state_value)
 ```
 
 
-### TD($\theta$):
+### TD(&theta;):
 
 In contrast, TD($\theta$) can be implemented in continuous time. It is possible to use these scripts to implement TD($\theta$) in discrete time, however, the published experiment used the continuous time implementation. 
 
