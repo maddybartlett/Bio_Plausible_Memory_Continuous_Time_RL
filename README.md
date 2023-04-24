@@ -202,10 +202,11 @@ This operation of taking the integral over the LDN window is handled by the ```r
 Please use this bibtex to reference the paper: 
 
 <pre>
-<!-- @inproceedings{bartlett2022_TDtheta,
-  author = {},
-  title = {},
-  year = {},
-  booktitle={},
- } -->
+@inproceedings{bartlett2022_TDtheta,
+  author = {Bartlett, M., Furlong, P., Dumont, N. S.-Y., & Stewart, T.},
+  title = {Biologically-plausible memory for continuous-time reinforcement learning.},
+  year = {2022, July},
+  booktitle={In-Person MathPsych/ICCM 2022},
+  url={mathpsych.org/presentation/894.}
+ } 
 </pre>
