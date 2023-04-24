@@ -176,7 +176,7 @@ This novel Temporal Difference learning rule uses Legendre Delay Networks (Voelk
 Legendre Delay Networks leverage the properties of Legendre polynomials which can be used to represent functions over fixed windows of time. <br>
 The LDN is a dynamic system that approximates the Legendre polynomial coefficients of an input signal over a sliding history window of length &theta;. <br>
 
-Recall that with discrete rules like TD(n), the history of rewards, states, values and actions are often stored as explicit lists containing $n$ values (where $n = $ number of time steps in history). 
+Recall that with discrete rules like TD(n), the history of rewards, states, values and actions are often stored as explicit lists containing $n$ values (where $n =$ number of time steps in history). 
 In contrast, the LDN stores a continuous-time signal over a window of length $\theta$. Thus the RL task no longer needs to be divided into discrete time steps. 
 
 **Note**: in this repository, only the reward history is stored in an LDN.
