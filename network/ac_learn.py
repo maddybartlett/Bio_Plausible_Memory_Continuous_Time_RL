@@ -30,7 +30,8 @@ class ActorCriticLearn(pytry.Trial):
         self.param('lambda value', lambd=None),
         self.param('number of neurons', n_neurons=None),
         self.param('neuron sparsity', sparsity=None),
-        self.param('generate encoders by sampling state space', sample_encoders=False)
+        #self.param('generate encoders by sampling state space', sample_encoders=False)
+        self.param('Sample grid encoders', specify_encoder_samples=False),
         self.param('choose whether to report the weights', report_weights=False)
         self.param('Set number of dimensions', dims=None)
         
@@ -81,12 +82,9 @@ class ActorCriticLearn(pytry.Trial):
         ## If using continuous time, need to have the agent wait for 2 time steps in each state
         wait = 2
         
-        ## Set sample encoders to True to generate place cells
-        if param.sample_encoders == "True" and n_neurons is not None:
-            pts = np.random.uniform(0,1,size=(n_neurons,len(env.observation_space.high)))
-            pts = pts * (env.observation_space.high-env.observation_space.low)
-            pts = pts + env.observation_space.low
-            encoders = [rep.map(rep.get_state(x, env)).copy() for x in pts]
+        ## Set sample encoders to True to generate grid cells
+        if param.specify_encoder_samples == "True":
+            encoders = rep.make_encoders(n_neurons)
         else:
             encoders = nengo.Default
         
